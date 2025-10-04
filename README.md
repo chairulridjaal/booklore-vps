@@ -106,11 +106,7 @@ https://book.herdsphere.xyz
 
 ## 📷 Screenshot
 
-Tambahkan screenshot hasil deploy, misalnya:
 
-- Halaman login
-- Dashboard/library
-- Tampilan membaca buku
 
 ## ✅ Fitur Utama
 
