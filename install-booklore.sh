@@ -43,7 +43,7 @@ echo -e "${YELLOW}========================================${NC}"
 echo ""
 
 # Ask for confirmation
-read -p "$(echo -e ${GREEN}Lanjutkan instalasi? [Y/n]: ${NC})" -n 1 -r
+read -n 1 -r -p $'\e[0;32mLanjutkan instalasi? [Y/n]: \e[0m'
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]] && [[ ! -z $REPLY ]]; then
     echo -e "${RED}❌ Instalasi dibatalkan${NC}"
