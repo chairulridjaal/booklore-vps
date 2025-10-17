@@ -33,12 +33,6 @@ Install BookLore dengan **satu perintah**! Script ini akan otomatis:
 **Cara pakai:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/chairulridjaal/booklore-vps/main/install-booklore.sh | bash
-```
-
-Atau download dulu, lalu jalankan:
-
-```bash
 wget https://raw.githubusercontent.com/chairulridjaal/booklore-vps/main/install-booklore.sh
 chmod +x install-booklore.sh
 ./install-booklore.sh
