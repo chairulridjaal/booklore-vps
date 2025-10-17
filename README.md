@@ -16,10 +16,40 @@ Sebelum memulai, pastikan sudah menyiapkan:
 
 - Akun Google Cloud & sebuah VM instance (contoh: e2-medium, Ubuntu 22.04, 2 vCPU, 4 GB RAM)
 - IP publik static (agar domain/DNS tidak berubah)
-- Docker & Docker Compose terinstall
 - (Opsional) Domain yang diarahkan ke IP VPS (misalnya via Cloudflare)
 
 ## ⚡ Instalasi
+
+### 🚀 Quick Install (Rekomendasi)
+
+Install BookLore dengan **satu perintah**! Script ini akan otomatis:
+
+✅ Update sistem  
+✅ Install Docker & Docker Compose  
+✅ Setup folder & konfigurasi  
+✅ Generate password aman  
+✅ Jalankan aplikasi
+
+**Cara pakai:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/chairulridjaal/booklore-vps/main/install-booklore.sh | bash
+```
+
+Atau download dulu, lalu jalankan:
+
+```bash
+wget https://raw.githubusercontent.com/chairulridjaal/booklore-vps/main/install-booklore.sh
+chmod +x install-booklore.sh
+./install-booklore.sh
+```
+
+Setelah instalasi selesai, akses BookLore di:
+```
+http://<VPS_IP>:6060
+```
+
+### 📖 Instalasi Manual
 
 ### 1. Update VPS
 
@@ -106,7 +136,31 @@ https://book.herdsphere.xyz
 
 ## 📷 Screenshot
 
+Berikut beberapa tampilan antarmuka BookLore:
 
+### 🏠 Homepage
+
+Halaman utama menampilkan koleksi buku yang tersedia dengan tampilan grid yang rapi dan modern.
+
+<img src="./images/Homepage.jpg" alt="BookLore Homepage" width="700" />
+
+### 📚 User Library
+
+Tampilan perpustakaan pengguna untuk mengelola koleksi buku pribadi dengan berbagai opsi filter dan sorting.
+
+<img src="./images/Library.jpg" alt="BookLore Library" width="700" />
+
+### 📋 Book Metadata
+
+Detail metadata lengkap untuk setiap buku, termasuk informasi penulis, penerbit, rating, dan deskripsi yang diambil otomatis dari berbagai sumber.
+
+<img src="./images/Book Metadata.jpg" alt="BookLore Book Metadata" width="700" />
+
+### 📖 E-Reader
+
+Built-in e-reader untuk membaca buku langsung di browser dengan tampilan yang nyaman dan berbagai opsi kustomisasi.
+
+<img src="./images/E-Reader.jpg" alt="BookLore E-Reader" width="700" />
 
 ## ✅ Fitur Utama
 
