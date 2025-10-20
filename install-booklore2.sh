@@ -1,9 +1,10 @@
 #!/bin/bash
 
 #############################################
-# 📚 BookLore Auto Installer Script (Enhanced)
+# 📚 BookLore Auto Installer Script (Final)
 # - Adds Docker permissions for current user
-# - Ensures Docker service keeps running
+# - Ensures Docker service stays active
+# - Shows correct Public & Local IP
 #############################################
 
 set -e  # Exit on error
@@ -74,7 +75,8 @@ sudo systemctl status docker --no-pager | grep "Active:" || true
 echo -e "\n${BLUE}[4/7]${NC} ${GREEN}👤 Menyetel izin user untuk Docker...${NC}"
 if ! groups $USER | grep -qw docker; then
     sudo usermod -aG docker $USER
-    # Apply permission immediately
+    echo -e "${GREEN}✅ Menambahkan user ke grup Docker...${NC}"
+    echo -e "${YELLOW}⚙️  Mengaktifkan izin Docker untuk sesi ini...${NC}"
     newgrp docker <<EONG
 echo -e "${GREEN}✅ User sekarang memiliki akses Docker tanpa sudo${NC}"
 EONG
@@ -168,10 +170,16 @@ else
     exit 1
 fi
 
-# Success message
-PUBLIC_IP=$(curl -s ifconfig.me 2>/dev/null || echo "localhost")
+# --- FIXED: Proper IP detection ---
+PUBLIC_IP=$(curl -4 -s https://api.ipify.org 2>/dev/null)
+LOCAL_IP=$(hostname -I | awk '{print $1}')
+
 echo -e "\n${BLUE}📍 Akses aplikasi di:${NC}"
-echo -e "   🌐 http://${PUBLIC_IP}:${BOOKLORE_PORT}"
+if [ -n "$PUBLIC_IP" ]; then
+    echo -e "   🌐 Public:  http://${PUBLIC_IP}:${BOOKLORE_PORT}"
+fi
+echo -e "   🖥️  Lokal:   http://${LOCAL_IP}:${BOOKLORE_PORT}"
+
 echo -e "\n${BLUE}📁 Lokasi instalasi:${NC} ${INSTALL_DIR}"
 echo -e "${BLUE}🔐 Kredensial tersimpan di:${NC} ${INSTALL_DIR}/.env"
 echo -e "\n${YELLOW}📝 Command berguna:${NC}"
